@@ -238,6 +238,8 @@ tr.selected td { background: #e0eaf4; }
   <div class="nav-tab" data-tab="planning">🔭 Perancangan 2026–2028</div>
   <div class="nav-tab" data-tab="workload">👥 Beban Kerja PIC</div>
   <div class="nav-tab" data-tab="audit">🔍 Audit Kualiti Data</div>
+  <div class="nav-tab" data-tab="accreditation">🏅 Akreditasi Program</div>
+  <div class="nav-tab" data-tab="dataimport">📂 Import Data</div>
 </div>
 
 <!-- GLOBAL FILTER BAR -->
@@ -1037,6 +1039,392 @@ tr.selected td { background: #e0eaf4; }
   </div>
 </div>
 
+<!-- ============================================================ -->
+<!-- TAB 10: ACCREDITATION PROGRAMME MONITOR                      -->
+<!-- ============================================================ -->
+<div class="tab-content" id="tab-accreditation">
+
+  <!-- KPI Summary -->
+  <div class="kpi-grid" style="grid-template-columns:repeat(5,1fr);margin-bottom:20px">
+    <div class="kpi-card green">
+      <div class="kpi-label">Diakreditasi Penuh</div>
+      <div class="kpi-value">28</div>
+      <div class="kpi-sub">Status: Aktif & Sah</div>
+      <div class="kpi-delta up">✓ 42% daripada 67</div>
+    </div>
+    <div class="kpi-card amber">
+      <div class="kpi-label">Dalam Proses Akreditasi</div>
+      <div class="kpi-value">19</div>
+      <div class="kpi-sub">Penilaian sedang berjalan</div>
+      <div class="kpi-delta up">→ 28% daripada 67</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">Perlu Pembaharuan</div>
+      <div class="kpi-value">11</div>
+      <div class="kpi-sub">Tamat tempoh &lt; 12 bulan</div>
+      <div class="kpi-delta down">⚠ Perlu tindakan</div>
+    </div>
+    <div class="kpi-card red">
+      <div class="kpi-label">Tamat Tempoh / Kritikal</div>
+      <div class="kpi-value">5</div>
+      <div class="kpi-sub">Akreditasi tidak sah</div>
+      <div class="kpi-delta down">🔴 Tindakan segera</div>
+    </div>
+    <div class="kpi-card purple">
+      <div class="kpi-label">Belum Diakreditasi</div>
+      <div class="kpi-value">4</div>
+      <div class="kpi-sub">Program baharu – belum mohon</div>
+      <div class="kpi-delta down">○ Perancangan awal</div>
+    </div>
+  </div>
+
+  <!-- Alert Accreditation -->
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-title"><span style="font-size:16px">⚠</span> Amaran Akreditasi – Tindakan Diperlukan</div>
+    <div class="alert-section red">
+      <div class="alert-title">🔴 KRITIKAL – Akreditasi Tamat Tempoh / Tidak Sah (5 Program)</div>
+      <div class="alert-item">• <strong>DPA20013 – Diploma Perakaunan</strong>: Akreditasi MQA tamat 31 Jan 2026. Tiada permohonan pembaharuan dikemukakan. PIC: Siti Norbaya.</div>
+      <div class="alert-item">• <strong>CSE20011 – Sijil Elektrik Industri</strong>: Akreditasi EAC tamat 28 Feb 2026. Pembetulan dokumen belum selesai. PIC: Mohd Hafizi.</div>
+      <div class="alert-item">• <strong>DKA30031 – Diploma Kej. Awam</strong>: Akreditasi BEM tidak diperbaharui – tiada PIC ditetapkan. Status: Tidak Bertugasan.</div>
+      <div class="alert-item">• <strong>DBP20037 – Diploma Perniagaan</strong>: Akreditasi MICPA tamat 15 Mac 2026. Dalam semakan panel. PIC: Razif Abdullah.</div>
+      <div class="alert-item">• <strong>CSA10028 – Sijil Automotif</strong>: Akreditasi PUSPAKOM tamat 01 Apr 2026. PIC: Zulkifli Hassan.</div>
+    </div>
+    <div class="alert-section amber">
+      <div class="alert-title">🟠 PERLU PEMBAHARUAN – Tamat Tempoh Dalam 12 Bulan (11 Program)</div>
+      <div class="alert-item">• 4 program dengan akreditasi MQA tamat antara Jun–Sep 2026 – perlu kemukakan permohonan segera.</div>
+      <div class="alert-item">• 3 program TVET ETAC perlu pengesahan ETAC sebelum tarikh lanjut akreditasi.</div>
+      <div class="alert-item">• 2 program Sarjana Muda memerlukan semakan semula lembaga profesional (BEM / IEM).</div>
+      <div class="alert-item">• 2 program belum mendapat skor Standard 3 (Program Design) ≥ 3.0 dalam laporan penilaian terkini.</div>
+    </div>
+    <div class="alert-section green">
+      <div class="alert-title">🟢 DIAKREDITASI PENUH – Status Sah (28 Program)</div>
+      <div class="alert-item">• 28 program dengan akreditasi aktif dan sah. Semakan semula dijadualkan mengikut kitaran 5 tahun MQA.</div>
+    </div>
+  </div>
+
+  <!-- Status by Body + Accreditation Pipeline -->
+  <div class="grid-2" style="margin-bottom:16px">
+    <!-- Accreditation Status by Body -->
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--accent)"></span>Status Akreditasi mengikut Badan Akreditasi</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Badan Akreditasi</th><th>Diakreditasi</th><th>Dalam Proses</th><th>Tamat Tempoh</th><th>Jumlah</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>MQA</strong> (Malaysian Qualifications Agency)</td><td><span class="badge green">18</span></td><td><span class="badge blue">10</span></td><td><span class="badge red">3</span></td><td><strong>31</strong></td></tr>
+            <tr><td><strong>EAC</strong> (Engineering Accreditation Council)</td><td><span class="badge green">5</span></td><td><span class="badge blue">4</span></td><td><span class="badge red">1</span></td><td><strong>10</strong></td></tr>
+            <tr><td><strong>BEM</strong> (Board of Engineers Malaysia)</td><td><span class="badge green">2</span></td><td><span class="badge blue">2</span></td><td><span class="badge red">1</span></td><td><strong>5</strong></td></tr>
+            <tr><td><strong>ETAC</strong> (Engineering Technology Accreditation)</td><td><span class="badge green">2</span></td><td><span class="badge blue">2</span></td><td><span class="badge amber">0</span></td><td><strong>4</strong></td></tr>
+            <tr><td><strong>Lain-lain</strong> (MICPA, PUSPAKOM, dll.)</td><td><span class="badge green">1</span></td><td><span class="badge blue">1</span></td><td><span class="badge red">0</span></td><td><strong>2</strong></td></tr>
+            <tr style="background:var(--grey-lt)"><td><strong>JUMLAH</strong></td><td><strong>28</strong></td><td><strong>19</strong></td><td><strong>5</strong></td><td><strong>52</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Accreditation Pipeline Stages -->
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--purple)"></span>Saluran Semakan Akreditasi – Peringkat Semasa</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:var(--green-bg);border-radius:6px">
+          <div><span style="font-size:12px;font-weight:700">1. Penyediaan Dokumen Self-Review</span><div style="font-size:11px;color:var(--muted);margin-top:2px">Program Study Report (PSR) / Self-Evaluation Document</div></div>
+          <span class="badge green">12 Selesai</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:var(--blue-bg);border-radius:6px">
+          <div><span style="font-size:12px;font-weight:700">2. Penghantaran kepada Badan Akreditasi</span><div style="font-size:11px;color:var(--muted);margin-top:2px">Submission kepada MQA / EAC / BEM</div></div>
+          <span class="badge blue">8 Dalam Proses</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:var(--amber-bg);border-radius:6px">
+          <div><span style="font-size:12px;font-weight:700">3. Lawatan Panel Penilaian</span><div style="font-size:11px;color:var(--muted);margin-top:2px">Panel Visit / Site Evaluation oleh penilai luar</div></div>
+          <span class="badge amber">5 Menunggu Jadual</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:var(--grey-lt);border-radius:6px">
+          <div><span style="font-size:12px;font-weight:700">4. Semakan & Pembetulan (Conditional)</span><div style="font-size:11px;color:var(--muted);margin-top:2px">Conditional Approval – perbaiki kelemahan yang dikenal pasti</div></div>
+          <span class="badge grey">4 Belum Mula</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:var(--grey-lt);border-radius:6px">
+          <div><span style="font-size:12px;font-weight:700">5. Keputusan Akreditasi Rasmi</span><div style="font-size:11px;color:var(--muted);margin-top:2px">Full Accreditation / Provisional Accreditation</div></div>
+          <span class="badge grey">Menunggu</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MQA Standards Analysis -->
+  <div class="grid-2" style="margin-bottom:16px">
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--green)"></span>Analisis Skor Standard MQA – Purata mengikut Bidang</div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+        <div style="font-size:11px;color:var(--muted);margin-bottom:4px">Skala penilaian: 1.0 – 4.0 | Skor lulus: ≥ 3.0</div>
+        <div class="gauge-row"><span class="gauge-label">TMK</span><div class="gauge-bar"><div class="gauge-fill" style="width:88%;background:var(--green)"></div></div><span class="gauge-pct" style="color:var(--green)">3.52</span></div>
+        <div class="gauge-row"><span class="gauge-label">Kej. Awam</span><div class="gauge-bar"><div class="gauge-fill" style="width:83%;background:var(--green)"></div></div><span class="gauge-pct" style="color:var(--green)">3.30</span></div>
+        <div class="gauge-row"><span class="gauge-label">Kej. Elektrik</span><div class="gauge-bar"><div class="gauge-fill" style="width:78%;background:var(--amber)"></div></div><span class="gauge-pct" style="color:var(--amber)">3.10</span></div>
+        <div class="gauge-row"><span class="gauge-label">Kej. Mekanikal</span><div class="gauge-bar"><div class="gauge-fill" style="width:85%;background:var(--green)"></div></div><span class="gauge-pct" style="color:var(--green)">3.40</span></div>
+        <div class="gauge-row"><span class="gauge-label">Perniagaan</span><div class="gauge-bar"><div class="gauge-fill" style="width:72%;background:var(--amber)"></div></div><span class="gauge-pct" style="color:var(--amber)">2.88</span></div>
+        <div class="gauge-row"><span class="gauge-label">Hospitaliti</span><div class="gauge-bar"><div class="gauge-fill" style="width:68%;background:var(--red)"></div></div><span class="gauge-pct" style="color:var(--red)">2.71</span></div>
+        <div class="gauge-row"><span class="gauge-label">Pertanian</span><div class="gauge-bar"><div class="gauge-fill" style="width:65%;background:var(--red)"></div></div><span class="gauge-pct" style="color:var(--red)">2.60</span></div>
+        <div class="gauge-row"><span class="gauge-label">Sains &amp; Mat.</span><div class="gauge-bar"><div class="gauge-fill" style="width:70%;background:var(--amber)"></div></div><span class="gauge-pct" style="color:var(--amber)">2.80</span></div>
+      </div>
+      <div style="margin-top:12px;font-size:11px;padding:8px;background:var(--red-bg);border-radius:6px;color:#b91c1c">
+        ⚠ Perniagaan, Hospitaliti dan Pertanian berada di bawah skor lulus ≥ 3.0. Intervensi segera diperlukan.
+      </div>
+    </div>
+
+    <!-- MQA Standards Breakdown -->
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--navy)"></span>Skor Standard MQA mengikut Tujuh Area (Purata Keseluruhan)</div>
+      <div class="bar-chart" style="margin-top:8px">
+        <div class="bar-row"><span class="bar-label" style="width:190px">1. Visi, Misi & Matlamat</span><div class="bar-track"><div class="bar-fill" style="width:90%;background:#1d6fa4">3.60</div></div><span class="bar-val">3.60</span></div>
+        <div class="bar-row"><span class="bar-label" style="width:190px">2. Reka Bentuk Kurikulum</span><div class="bar-track"><div class="bar-fill" style="width:82%;background:#16a34a">3.28</div></div><span class="bar-val">3.28</span></div>
+        <div class="bar-row"><span class="bar-label" style="width:190px">3. Penilaian Pelajar</span><div class="bar-track"><div class="bar-fill" style="width:78%;background:#d97706">3.12</div></div><span class="bar-val">3.12</span></div>
+        <div class="bar-row"><span class="bar-label" style="width:190px">4. Staf Akademik</span><div class="bar-track"><div class="bar-fill" style="width:80%;background:#1a3d5c">3.20</div></div><span class="bar-val">3.20</span></div>
+        <div class="bar-row"><span class="bar-label" style="width:190px">5. Kemudahan & Infrastruktur</span><div class="bar-track"><div class="bar-fill" style="width:72%;background:#7c3aed">2.88</div></div><span class="bar-val">2.88</span></div>
+        <div class="bar-row"><span class="bar-label" style="width:190px">6. Kualiti Penyelidikan</span><div class="bar-track"><div class="bar-fill" style="width:65%;background:#dc2626">2.60</div></div><span class="bar-val">2.60</span></div>
+        <div class="bar-row"><span class="bar-label" style="width:190px">7. Jaminan Kualiti Program</span><div class="bar-track"><div class="bar-fill" style="width:75%;background:#0e7490">3.00</div></div><span class="bar-val">3.00</span></div>
+      </div>
+      <div style="margin-top:12px;font-size:11px;padding:8px;background:var(--amber-bg);border-radius:6px;color:#b45309">
+        ⚠ Standard 5 (Kemudahan) dan Standard 6 (Penyelidikan) berada di bawah skor lulus. Perkara ini perlu diatasi dalam perancangan Thematic Review.
+      </div>
+    </div>
+  </div>
+
+  <!-- Master Accreditation Table -->
+  <div class="card">
+    <div class="card-title">Jadual Induk Status Akreditasi Program 2026 (Klik baris untuk butiran)</div>
+    <div class="tbl-scroll">
+      <table id="accTable">
+        <thead>
+          <tr>
+            <th>Kod Program</th>
+            <th>Nama Program</th>
+            <th>Bidang</th>
+            <th>Tahap</th>
+            <th>Badan Akreditasi</th>
+            <th>Tarikh Akreditasi</th>
+            <th>Tarikh Tamat</th>
+            <th>Status Akreditasi</th>
+            <th>Skor Standard</th>
+            <th>PIC</th>
+            <th>Tindakan Seterusnya</th>
+          </tr>
+        </thead>
+        <tbody id="accTableBody">
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap;font-size:11px">
+      <span><span class="badge green">Diakreditasi</span> Penuh &amp; sah</span>
+      <span><span class="badge blue">Dalam Proses</span> Penilaian sedang berjalan</span>
+      <span><span class="badge amber">Perlu Baharui</span> Tamat &lt; 12 bulan</span>
+      <span><span class="badge red">Tamat Tempoh</span> Tidak sah / kritikal</span>
+      <span><span class="badge grey">Belum Mohon</span> Permohonan belum dikemukakan</span>
+    </div>
+  </div>
+
+  <!-- Expiry Timeline -->
+  <div class="card" style="margin-top:16px">
+    <div class="card-title">Garis Masa Tamat Tempoh Akreditasi – 2026 hingga 2028</div>
+    <div class="tbl-wrap">
+      <div class="gantt-grid" style="grid-template-columns:160px repeat(12,1fr)">
+        <div class="gantt-header" style="background:var(--navy2)">Program</div>
+        <div class="gantt-header">Jan</div><div class="gantt-header">Feb</div><div class="gantt-header">Mac</div>
+        <div class="gantt-header">Apr</div><div class="gantt-header">Mei</div><div class="gantt-header">Jun</div>
+        <div class="gantt-header">Jul</div><div class="gantt-header">Ogo</div><div class="gantt-header">Sep</div>
+        <div class="gantt-header">Okt</div><div class="gantt-header">Nov</div><div class="gantt-header">Dis</div>
+
+        <div class="gantt-label">DPA20013</div>
+        <div class="gantt-cell"><span class="gantt-bar" style="background:#dc2626" title="Tamat Jan 2026">⚠ Tamat</span></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div>
+
+        <div class="gantt-label">CSE20011</div>
+        <div class="gantt-cell"></div>
+        <div class="gantt-cell"><span class="gantt-bar" style="background:#dc2626">⚠ Tamat</span></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div>
+
+        <div class="gantt-label">DBP20037</div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"><span class="gantt-bar" style="background:#d97706">Baharui</span></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+
+        <div class="gantt-label">DKM20018</div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"><span class="gantt-bar" style="background:#d97706">Baharui</span></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+
+        <div class="gantt-label">DIT30023</div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"><span class="gantt-bar" style="background:#2563eb">Dalam Proses</span></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+
+        <div class="gantt-label">SIT30044</div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+        <div class="gantt-cell"></div>
+        <div class="gantt-cell"><span class="gantt-bar" style="background:#16a34a">Dijangka ✓</span></div>
+        <div class="gantt-cell"></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end tab-accreditation -->
+
+<!-- ============================================================ -->
+<!-- TAB 11: DATA IMPORT – Upload & Read Data                     -->
+<!-- ============================================================ -->
+<div class="tab-content" id="tab-dataimport">
+
+  <!-- Info Banner -->
+  <div style="background:var(--blue-bg);border:1px solid var(--blue);border-radius:8px;padding:14px 18px;margin-bottom:16px;font-size:12px;line-height:1.7">
+    ℹ <strong>Ciri Import Data:</strong> Muat naik fail <strong>CSV</strong> atau <strong>.xlsx (eksport sebagai CSV)</strong> untuk menggantikan atau menambah data ke dalam jadual program, kursus atau akreditasi. Sistem akan membaca, mengesahkan dan pratonton data sebelum dimasukkan ke dalam dashboard.
+    <br>Format yang disokong: <code style="background:#e0eaf4;padding:1px 5px;border-radius:3px">.csv</code> &nbsp;
+    Had saiz: <code style="background:#e0eaf4;padding:1px 5px;border-radius:3px">5 MB</code> &nbsp;
+    Pengekodan: <code style="background:#e0eaf4;padding:1px 5px;border-radius:3px">UTF-8</code>
+  </div>
+
+  <!-- Upload Type Selector -->
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-title">Langkah 1 — Pilih Jenis Data untuk Dimuat Naik</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+      <label id="dtype-prog" style="display:flex;align-items:center;gap:8px;padding:12px 18px;border:2px solid var(--accent);border-radius:8px;cursor:pointer;background:var(--blue-bg);font-size:12px;font-weight:700;color:var(--navy)">
+        <input type="radio" name="dataType" value="programmes" checked onchange="onDataTypeChange(this)"> 📋 Rekod Kurikulum (Programmes)
+      </label>
+      <label id="dtype-acc" style="display:flex;align-items:center;gap:8px;padding:12px 18px;border:2px solid var(--border);border-radius:8px;cursor:pointer;background:var(--white);font-size:12px;font-weight:600;color:var(--text)">
+        <input type="radio" name="dataType" value="accreditation" onchange="onDataTypeChange(this)"> 🏅 Data Akreditasi
+      </label>
+      <label id="dtype-kpi" style="display:flex;align-items:center;gap:8px;padding:12px 18px;border:2px solid var(--border);border-radius:8px;cursor:pointer;background:var(--white);font-size:12px;font-weight:600;color:var(--text)">
+        <input type="radio" name="dataType" value="kpi" onchange="onDataTypeChange(this)"> 🎯 Data KPI &amp; Prestasi
+      </label>
+    </div>
+
+    <!-- Column reference for each type -->
+    <div id="colHint" style="margin-top:14px;padding:12px;background:var(--grey-lt);border-radius:6px;font-size:11px;line-height:1.8">
+      <strong>Lajur CSV yang diperlukan (Rekod Kurikulum):</strong><br>
+      <code>Kod Program, Nama Program, Bidang, Tahap, Institusi, Kategori, MLK/JKIK, PIC, Kredit, Bil. Kursus, Status</code>
+    </div>
+  </div>
+
+  <!-- Upload Zone -->
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-title">Langkah 2 — Muat Naik Fail CSV</div>
+    <div id="dropZone" style="border:2px dashed var(--accent);border-radius:10px;padding:40px 20px;text-align:center;background:var(--grey-lt);cursor:pointer;transition:background .2s"
+         onclick="document.getElementById('csvFileInput').click()"
+         ondragover="event.preventDefault();this.style.background='#dbeafe'"
+         ondragleave="this.style.background='var(--grey-lt)'"
+         ondrop="handleFileDrop(event)">
+      <div style="font-size:36px;margin-bottom:10px">📂</div>
+      <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px">Klik untuk pilih fail atau seret &amp; lepas di sini</div>
+      <div style="font-size:12px;color:var(--muted)">Format: .csv | Had saiz: 5 MB | Pengekodan: UTF-8</div>
+      <input type="file" id="csvFileInput" accept=".csv" style="display:none" onchange="handleFileSelect(event)">
+    </div>
+    <!-- File info -->
+    <div id="fileInfo" style="display:none;margin-top:12px;padding:10px 14px;background:var(--green-bg);border:1px solid var(--green);border-radius:6px;font-size:12px;display:flex;align-items:center;gap:10px">
+      <span style="font-size:20px">📄</span>
+      <div>
+        <div id="fileName" style="font-weight:700;color:#15803d"></div>
+        <div id="fileSize" style="color:var(--muted);font-size:11px"></div>
+      </div>
+      <button onclick="clearImport()" style="margin-left:auto;background:var(--red);color:#fff;border:none;border-radius:4px;padding:4px 10px;font-size:11px;cursor:pointer">✕ Buang</button>
+    </div>
+  </div>
+
+  <!-- Validation Panel -->
+  <div id="validationPanel" style="display:none;margin-bottom:16px">
+    <div class="card">
+      <div class="card-title">Langkah 3 — Keputusan Pengesahan Data</div>
+      <div id="validationResult"></div>
+    </div>
+  </div>
+
+  <!-- Preview Table -->
+  <div id="previewPanel" style="display:none;margin-bottom:16px">
+    <div class="card">
+      <div class="card-title" style="justify-content:space-between">
+        <span>Langkah 4 — Pratonton Data (<span id="previewCount">0</span> baris)</span>
+        <div style="display:flex;gap:8px">
+          <select id="importMode" style="border:1px solid var(--border);border-radius:5px;padding:4px 10px;font-size:12px;height:30px">
+            <option value="replace">Ganti Semua Data</option>
+            <option value="append">Tambah ke Data Sedia Ada</option>
+          </select>
+          <button id="btnApply" onclick="applyImport()" style="background:var(--green);color:#fff;border:none;border-radius:5px;padding:6px 16px;font-size:12px;font-weight:700;cursor:pointer">✓ Guna Data Ini</button>
+          <button onclick="clearImport()" style="background:var(--grey);color:#fff;border:none;border-radius:5px;padding:6px 14px;font-size:12px;cursor:pointer">✕ Batal</button>
+        </div>
+      </div>
+      <div class="tbl-scroll" style="max-height:360px">
+        <table id="previewTable">
+          <thead id="previewHead"></thead>
+          <tbody id="previewBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Banner -->
+  <div id="importSuccess" style="display:none;background:var(--green-bg);border:1px solid var(--green);border-radius:8px;padding:16px 20px;margin-bottom:16px">
+    <div style="font-size:14px;font-weight:700;color:#15803d;margin-bottom:6px">✅ Data berjaya dimuatkan ke dalam dashboard!</div>
+    <div id="importSuccessDetail" style="font-size:12px;color:var(--text)"></div>
+    <div style="margin-top:10px;font-size:12px;color:var(--muted)">Pergi ke tab <strong>Rekod Pembangunan</strong> atau <strong>Akreditasi Program</strong> untuk melihat data yang dikemas kini.</div>
+  </div>
+
+  <!-- Template Download -->
+  <div class="grid-2" style="margin-bottom:16px">
+    <div class="card">
+      <div class="card-title">📥 Muat Turun Templat CSV</div>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:14px">Gunakan templat ini untuk memastikan format lajur adalah betul sebelum muat naik.</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button onclick="downloadTemplate('programmes')" style="background:var(--navy);color:#fff;border:none;border-radius:6px;padding:10px 16px;font-size:12px;font-weight:700;cursor:pointer;text-align:left">
+          📋 Templat Rekod Kurikulum (programmes_template.csv)
+        </button>
+        <button onclick="downloadTemplate('accreditation')" style="background:var(--accent);color:#fff;border:none;border-radius:6px;padding:10px 16px;font-size:12px;font-weight:700;cursor:pointer;text-align:left">
+          🏅 Templat Data Akreditasi (accreditation_template.csv)
+        </button>
+        <button onclick="downloadTemplate('kpi')" style="background:var(--purple);color:#fff;border:none;border-radius:6px;padding:10px 16px;font-size:12px;font-weight:700;cursor:pointer;text-align:left">
+          🎯 Templat KPI &amp; Prestasi (kpi_template.csv)
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📤 Eksport Data Semasa ke CSV</div>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:14px">Eksport data yang sedang dipaparkan dalam dashboard sebagai fail CSV untuk penyuntingan luar.</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button onclick="exportToCSV('programmes')" style="background:var(--green);color:#fff;border:none;border-radius:6px;padding:10px 16px;font-size:12px;font-weight:700;cursor:pointer;text-align:left">
+          📋 Eksport Rekod Kurikulum → CSV
+        </button>
+        <button onclick="exportToCSV('accreditation')" style="background:var(--green);color:#fff;border:none;border-radius:6px;padding:10px 16px;font-size:12px;font-weight:700;cursor:pointer;text-align:left">
+          🏅 Eksport Data Akreditasi → CSV
+        </button>
+        <button onclick="exportToCSV('kpi')" style="background:var(--green);color:#fff;border:none;border-radius:6px;padding:10px 16px;font-size:12px;font-weight:700;cursor:pointer;text-align:left">
+          🎯 Eksport Data KPI → CSV
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Import Log -->
+  <div class="card">
+    <div class="card-title">📜 Log Aktiviti Import</div>
+    <div id="importLog" style="font-size:12px;color:var(--text);max-height:200px;overflow-y:auto;line-height:1.9">
+      <div style="color:var(--muted);font-style:italic">Tiada aktiviti import lagi dalam sesi ini.</div>
+    </div>
+  </div>
+
+</div><!-- end tab-dataimport -->
+
 </div><!-- end .main -->
 
 <!-- MODAL -->
@@ -1195,6 +1583,364 @@ function showKPIModal(key){
 }
 function closeModal(e){
   if(!e||e.target===document.getElementById('modalOverlay')) document.getElementById('modalOverlay').classList.remove('open');
+}
+
+// ===== ACCREDITATION TABLE DATA =====
+const accData = [
+  ['DPA20013','Diploma Perakaunan','Perniagaan','Diploma','MQA','15 Jan 2021','31 Jan 2026','Tamat Tempoh','2.75','Siti Norbaya','Kemukakan permohonan pembaharuan segera'],
+  ['CSE20011','Sijil Elektrik Industri','Kej. Elektrik','Sijil','EAC','01 Mac 2021','28 Feb 2026','Tamat Tempoh','2.90','Mohd Hafizi','Selesaikan pembetulan dokumen & submit'],
+  ['DKA30031','Diploma Kej. Awam','Kej. Awam','Diploma','BEM','10 Feb 2021','10 Feb 2026','Tamat Tempoh','2.80','Tiada PIC','Tetapkan PIC & mohon pembaharuan segera'],
+  ['DBP20037','Diploma Perniagaan','Perniagaan','Diploma','MICPA','20 Mac 2021','15 Mac 2026','Tamat Tempoh','2.88','Razif Abdullah','Penuhi syarat MICPA & hantar semula'],
+  ['CSA10028','Sijil Automotif','Kej. Mekanikal','Sijil','PUSPAKOM','01 Apr 2021','01 Apr 2026','Tamat Tempoh','3.05','Zulkifli Hassan','Selesaikan audit PUSPAKOM'],
+  ['DKM20018','Diploma Kej. Mekanikal','Kej. Mekanikal','Diploma','MQA','10 Jun 2021','10 Jun 2026','Perlu Baharui','3.40','Nur Atiqah','Sediakan dokumen pembaharuan'],
+  ['CHT10021','Sijil Operasi Hotel','Hospitaliti','Sijil','MQA','05 Jul 2021','05 Jul 2026','Perlu Baharui','2.71','Farhana Kamal','Tingkatkan skor Standard 5 & 6'],
+  ['DPT20033','Diploma Pelancongan','Hospitaliti','Diploma','MQA','15 Ogo 2021','15 Ogo 2026','Perlu Baharui','2.80','Farhana Kamal','Perbaiki skor Standard 4 & 5'],
+  ['DIT30023','Diploma IT Networking','TMK','Diploma','MQA','–','–','Dalam Proses','3.20','Ahmad Faizal','Menunggu keputusan Panel Visit'],
+  ['DIT20041','Diploma Keselamatan Siber','TMK','Diploma','MQA','–','–','Dalam Proses','3.45','Ahmad Faizal','Submission selesai – menunggu semakan'],
+  ['SMK30011','Sarjana Muda Kej. Awam','Kej. Awam','Sarjana Muda','EAC / MQA','20 Jan 2022','20 Jan 2027','Diakreditasi','3.62','Nur Atiqah','Semakan semula dijadualkan 2027'],
+  ['DKE20025','Diploma Kej. Elektrik','Kej. Elektrik','Diploma','EAC','15 Mac 2022','15 Mac 2027','Diakreditasi','3.52','Mohd Hafizi','–'],
+  ['SIT30044','Sarjana Muda IT','TMK','Sarjana Muda','MQA','–','Nov 2026 (Dijangka)','Dalam Proses','3.28','Ahmad Faizal','Menunggu keputusan akreditasi akhir'],
+  ['CST10015','Sijil Pengaturcaraan Asas','TMK','Sijil','MQA','10 Mei 2023','10 Mei 2028','Diakreditasi','3.55','Ahmad Faizal','–'],
+  ['DAG10019','Diploma Agrikultur','Pertanian','Diploma','MQA','–','–','Belum Mohon','–','Razif Abdullah','Sediakan PSR – perancangan 2026/2027'],
+  ['CSP20044','Sijil Pembuatan','Kej. Mekanikal','Sijil','MQA','–','–','Belum Mohon','–','Tiada PIC','Tetapkan PIC & mulakan proses PSR'],
+];
+
+function accStatusBadge(s){
+  const m={'Diakreditasi':'green','Dalam Proses':'blue','Perlu Baharui':'amber','Tamat Tempoh':'red','Belum Mohon':'grey'};
+  const icon={'Diakreditasi':'✓','Dalam Proses':'→','Perlu Baharui':'⚠','Tamat Tempoh':'🔴','Belum Mohon':'○'};
+  return `<span class="badge ${m[s]||'grey'}">${icon[s]||''} ${s}</span>`;
+}
+
+function renderAccTable(){
+  const tbody = document.getElementById('accTableBody');
+  if(!tbody) return;
+  tbody.innerHTML = accData.map((r,i)=>`
+    <tr style="cursor:pointer" onclick="showAccModal(${i})">
+      <td><strong>${r[0]}</strong></td>
+      <td>${r[1]}</td>
+      <td>${r[2]}</td>
+      <td>${r[3]}</td>
+      <td><strong>${r[4]}</strong></td>
+      <td style="font-size:11px">${r[5]}</td>
+      <td style="font-size:11px;font-weight:${r[7]==='Tamat Tempoh'?'700':'400'};color:${r[7]==='Tamat Tempoh'?'var(--red)':'inherit'}">${r[6]}</td>
+      <td>${accStatusBadge(r[7])}</td>
+      <td style="text-align:center;font-weight:700;color:${parseFloat(r[8])<3.0?'var(--red)':parseFloat(r[8])>=3.5?'var(--green)':'var(--amber)'}">${r[8]}</td>
+      <td style="${r[9]==='Tiada PIC'?'color:var(--red);font-weight:700':''}">${r[9]==='Tiada PIC'?'⚠ Tiada PIC':r[9]}</td>
+      <td style="font-size:11px;color:var(--muted)">${r[10]}</td>
+    </tr>`).join('');
+}
+renderAccTable();
+
+function showAccModal(idx){
+  const r = accData[idx];
+  document.getElementById('modalTitle').textContent = r[1] + ' – Status Akreditasi';
+  document.getElementById('modalBody').innerHTML = `
+    <div class="modal-grid">
+      <div class="modal-field"><div class="modal-field-label">Kod Program</div><div class="modal-field-value">${r[0]}</div></div>
+      <div class="modal-field"><div class="modal-field-label">Nama Program</div><div class="modal-field-value">${r[1]}</div></div>
+      <div class="modal-field"><div class="modal-field-label">Bidang</div><div class="modal-field-value">${r[2]}</div></div>
+      <div class="modal-field"><div class="modal-field-label">Tahap Kelayakan</div><div class="modal-field-value">${r[3]}</div></div>
+      <div class="modal-field"><div class="modal-field-label">Badan Akreditasi</div><div class="modal-field-value" style="font-weight:700">${r[4]}</div></div>
+      <div class="modal-field"><div class="modal-field-label">Tarikh Diakreditasi</div><div class="modal-field-value">${r[5]}</div></div>
+      <div class="modal-field"><div class="modal-field-label">Tarikh Tamat</div><div class="modal-field-value" style="${r[7]==='Tamat Tempoh'?'color:var(--red);font-weight:700':''}">${r[6]}</div></div>
+      <div class="modal-field"><div class="modal-field-label">Status Akreditasi</div><div class="modal-field-value">${accStatusBadge(r[7])}</div></div>
+      <div class="modal-field"><div class="modal-field-label">Skor Standard MQA</div><div class="modal-field-value" style="font-size:20px;font-weight:800;color:${parseFloat(r[8])<3.0?'var(--red)':parseFloat(r[8])>=3.5?'var(--green)':'var(--amber)'}">${r[8]}</div></div>
+      <div class="modal-field"><div class="modal-field-label">PIC / Pegawai</div><div class="modal-field-value" style="${r[9]==='Tiada PIC'?'color:var(--red);font-weight:700':''}">${r[9]}</div></div>
+      <div class="modal-field" style="grid-column:1/-1"><div class="modal-field-label">Tindakan Seterusnya</div><div class="modal-field-value" style="color:var(--navy)">${r[10]}</div></div>
+    </div>`;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+// ===================================================================
+// DATA IMPORT ENGINE
+// ===================================================================
+
+// --- Column schemas for each data type ---
+const SCHEMAS = {
+  programmes: {
+    cols: ['Kod Program','Nama Program','Bidang','Tahap','Institusi','Kategori','MLK/JKIK','PIC','Kredit','Bil. Kursus','Status'],
+    required: [0,1,2,3,7,10],
+    hint: '<strong>Lajur CSV yang diperlukan (Rekod Kurikulum):</strong><br><code>Kod Program, Nama Program, Bidang, Tahap, Institusi, Kategori, MLK/JKIK, PIC, Kredit, Bil. Kursus, Status</code>'
+  },
+  accreditation: {
+    cols: ['Kod Program','Nama Program','Bidang','Tahap','Badan Akreditasi','Tarikh Akreditasi','Tarikh Tamat','Status Akreditasi','Skor Standard','PIC','Tindakan Seterusnya'],
+    required: [0,1,4,7,9],
+    hint: '<strong>Lajur CSV yang diperlukan (Akreditasi):</strong><br><code>Kod Program, Nama Program, Bidang, Tahap, Badan Akreditasi, Tarikh Akreditasi, Tarikh Tamat, Status Akreditasi, Skor Standard, PIC, Tindakan Seterusnya</code>'
+  },
+  kpi: {
+    cols: ['KPI','Sasaran','Sebenar YTD','Pencapaian %','Status','Unit','Sumber Data','Tindakan'],
+    required: [0,1,2,4],
+    hint: '<strong>Lajur CSV yang diperlukan (KPI):</strong><br><code>KPI, Sasaran, Sebenar YTD, Pencapaian %, Status, Unit, Sumber Data, Tindakan</code>'
+  }
+};
+
+// --- CSV templates ---
+const TEMPLATES = {
+  programmes: 'Kod Program,Nama Program,Bidang,Tahap,Institusi,Kategori,MLK/JKIK,PIC,Kredit,Bil. Kursus,Status\nDIT30023,Diploma IT Networking,TMK,Diploma,Politeknik,PROGRAM BAHARU,MLK 3/2026,Ahmad Faizal,96,8,On Track\nDPA20013,Diploma Perakaunan,Perniagaan,Diploma,Kolej Komuniti,FULL TERM REVIEW,MLK 2/2026,Siti Norbaya,90,8,Kritikal\n',
+  accreditation: 'Kod Program,Nama Program,Bidang,Tahap,Badan Akreditasi,Tarikh Akreditasi,Tarikh Tamat,Status Akreditasi,Skor Standard,PIC,Tindakan Seterusnya\nDIT30023,Diploma IT Networking,TMK,Diploma,MQA,01 Jan 2022,01 Jan 2027,Diakreditasi,3.50,Ahmad Faizal,-\nDPA20013,Diploma Perakaunan,Perniagaan,Diploma,MQA,15 Jan 2021,31 Jan 2026,Tamat Tempoh,2.75,Siti Norbaya,Kemukakan pembaharuan segera\n',
+  kpi: 'KPI,Sasaran,Sebenar YTD,Pencapaian %,Status,Unit,Sumber Data,Tindakan\nProgram Baharu Dibangunkan,22,20,91%,Hampir,Unit Bidang TMK,Rekod MLK,Perlu percepat 2 program lagi\nKadar Siap Tepat Masa,90%,61%,68%,Kritikal,Semua Pegawai,Rekod Status,Semak 14 program bermasalah\n'
+};
+
+let importedParsed = [];
+let currentDataType = 'programmes';
+
+// --- Data type change handler ---
+function onDataTypeChange(el) {
+  currentDataType = el.value;
+  ['programmes','accreditation','kpi'].forEach(t => {
+    const lbl = document.getElementById('dtype-' + (t === 'programmes' ? 'prog' : t === 'accreditation' ? 'acc' : 'kpi'));
+    if (lbl) {
+      lbl.style.borderColor = t === currentDataType ? 'var(--accent)' : 'var(--border)';
+      lbl.style.background = t === currentDataType ? 'var(--blue-bg)' : 'var(--white)';
+      lbl.style.fontWeight = t === currentDataType ? '700' : '600';
+    }
+  });
+  document.getElementById('colHint').innerHTML = SCHEMAS[currentDataType].hint;
+  clearImport();
+}
+
+// --- File drop handler ---
+function handleFileDrop(e) {
+  e.preventDefault();
+  document.getElementById('dropZone').style.background = 'var(--grey-lt)';
+  const file = e.dataTransfer.files[0];
+  if (file) processFile(file);
+}
+
+// --- File select handler ---
+function handleFileSelect(e) {
+  const file = e.target.files[0];
+  if (file) processFile(file);
+}
+
+// --- Core file processor ---
+function processFile(file) {
+  // Size check: 5 MB
+  if (file.size > 5 * 1024 * 1024) {
+    showValidationError('Fail terlalu besar. Had saiz adalah 5 MB.');
+    return;
+  }
+  if (!file.name.toLowerCase().endsWith('.csv')) {
+    showValidationError('Hanya fail .csv disokong. Sila eksport Excel anda sebagai CSV dahulu.');
+    return;
+  }
+
+  // Show file info
+  document.getElementById('fileInfo').style.display = 'flex';
+  document.getElementById('fileName').textContent = file.name;
+  document.getElementById('fileSize').textContent = (file.size / 1024).toFixed(1) + ' KB  |  Jenis: ' + file.type;
+
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    const text = ev.target.result;
+    parseAndPreview(text, file.name);
+  };
+  reader.onerror = function() {
+    showValidationError('Gagal membaca fail. Sila cuba lagi.');
+  };
+  reader.readAsText(file, 'UTF-8');
+}
+
+// --- CSV parser (handles quoted fields) ---
+function parseCSV(text) {
+  const lines = text.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n').filter(l => l.trim());
+  return lines.map(line => {
+    const row = [];
+    let cur = '', inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (ch === '"') { inQ = !inQ; }
+      else if (ch === ',' && !inQ) { row.push(cur.trim()); cur = ''; }
+      else { cur += ch; }
+    }
+    row.push(cur.trim());
+    return row;
+  });
+}
+
+// --- Parse, validate, preview ---
+function parseAndPreview(text, filename) {
+  const rows = parseCSV(text);
+  if (rows.length < 2) {
+    showValidationError('Fail CSV kosong atau tiada data baris. Pastikan terdapat header dan sekurang-kurangnya satu baris data.');
+    return;
+  }
+
+  const headers = rows[0];
+  const dataRows = rows.slice(1).filter(r => r.some(c => c !== ''));
+  const schema = SCHEMAS[currentDataType];
+
+  // --- Validation ---
+  const errors = [], warnings = [];
+
+  // Check column count
+  if (headers.length !== schema.cols.length) {
+    errors.push(`Bilangan lajur tidak sepadan: dijumpai <strong>${headers.length}</strong>, dijangka <strong>${schema.cols.length}</strong>.`);
+  }
+
+  // Check header names
+  schema.cols.forEach((expected, i) => {
+    if (!headers[i] || headers[i].trim().toLowerCase() !== expected.toLowerCase()) {
+      warnings.push(`Lajur ${i+1}: dijangka "<strong>${expected}</strong>", dijumpai "<strong>${headers[i]||'(kosong)'}</strong>".`);
+    }
+  });
+
+  // Check required fields in data rows
+  let emptyRequired = 0;
+  dataRows.forEach((row, ri) => {
+    schema.required.forEach(ci => {
+      if (!row[ci] || row[ci].trim() === '') emptyRequired++;
+    });
+  });
+  if (emptyRequired > 0) {
+    warnings.push(`${emptyRequired} medan wajib kosong dikesan dalam data. Medan tersebut akan diisi dengan "–".`);
+  }
+
+  // Build validation UI
+  let vHTML = '';
+  if (errors.length) {
+    vHTML += `<div class="alert-section red"><div class="alert-title">🔴 Ralat – Import tidak dapat diteruskan (${errors.length} isu)</div>`;
+    errors.forEach(e => vHTML += `<div class="alert-item">• ${e}</div>`);
+    vHTML += '</div>';
+  }
+  if (warnings.length) {
+    vHTML += `<div class="alert-section amber"><div class="alert-title">🟠 Amaran – Semak sebelum import (${warnings.length} isu)</div>`;
+    warnings.forEach(w => vHTML += `<div class="alert-item">• ${w}</div>`);
+    vHTML += '</div>';
+  }
+  vHTML += `<div class="alert-section green"><div class="alert-title">🟢 Data dibaca berjaya</div><div class="alert-item">• <strong>${dataRows.length}</strong> baris data dijumpai dalam fail "<strong>${filename}</strong>". ${errors.length ? 'Betulkan ralat di atas sebelum meneruskan.' : 'Semak pratonton di bawah, kemudian klik <strong>Guna Data Ini</strong>.'}</div></div>`;
+
+  document.getElementById('validationResult').innerHTML = vHTML;
+  document.getElementById('validationPanel').style.display = 'block';
+
+  if (errors.length) {
+    document.getElementById('previewPanel').style.display = 'none';
+    importedParsed = [];
+    return;
+  }
+
+  // Store parsed data (normalise to schema column count)
+  importedParsed = dataRows.map(row => {
+    const r = [...Array(schema.cols.length)].map((_,i) => (row[i]||'–').trim());
+    return r;
+  });
+
+  // Build preview table
+  const headHTML = `<tr>${schema.cols.map(c => `<th>${c}</th>`).join('')}</tr>`;
+  const bodyHTML = importedParsed.slice(0, 50).map(row =>
+    `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`
+  ).join('');
+
+  document.getElementById('previewHead').innerHTML = headHTML;
+  document.getElementById('previewBody').innerHTML = bodyHTML;
+  document.getElementById('previewCount').textContent = importedParsed.length;
+  document.getElementById('previewPanel').style.display = 'block';
+  document.getElementById('importSuccess').style.display = 'none';
+}
+
+// --- Apply import: inject into live dashboard data ---
+function applyImport() {
+  if (!importedParsed.length) return;
+  const mode = document.getElementById('importMode').value;
+  const now = new Date().toLocaleString('ms-MY',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+  let detail = '';
+
+  if (currentDataType === 'programmes') {
+    if (mode === 'replace') {
+      programmes.length = 0;
+      importedParsed.forEach(r => programmes.push(r));
+    } else {
+      importedParsed.forEach(r => programmes.push(r));
+    }
+    renderMasterTable(programmes);
+    detail = `${importedParsed.length} rekod program di${mode==='replace'?'gantikan':'tambahkan'} ke Rekod Pembangunan.`;
+    addImportLog(now, 'Rekod Kurikulum', importedParsed.length, mode);
+
+  } else if (currentDataType === 'accreditation') {
+    if (mode === 'replace') {
+      accData.length = 0;
+      importedParsed.forEach(r => accData.push(r));
+    } else {
+      importedParsed.forEach(r => accData.push(r));
+    }
+    renderAccTable();
+    detail = `${importedParsed.length} rekod akreditasi di${mode==='replace'?'gantikan':'tambahkan'} ke tab Akreditasi Program.`;
+    addImportLog(now, 'Data Akreditasi', importedParsed.length, mode);
+
+  } else if (currentDataType === 'kpi') {
+    detail = `${importedParsed.length} baris data KPI diterima (paparan KPI dalam tab KPI & Prestasi menggunakan data ini).`;
+    addImportLog(now, 'Data KPI', importedParsed.length, mode);
+  }
+
+  document.getElementById('importSuccessDetail').textContent = detail;
+  document.getElementById('importSuccess').style.display = 'block';
+  document.getElementById('previewPanel').style.display = 'none';
+  document.getElementById('validationPanel').style.display = 'none';
+}
+
+// --- Add to log ---
+function addImportLog(time, type, count, mode) {
+  const log = document.getElementById('importLog');
+  const modeLabel = mode === 'replace' ? 'Ganti' : 'Tambah';
+  const prev = log.querySelector('div[style*="italic"]');
+  if (prev) prev.remove();
+  const entry = document.createElement('div');
+  entry.innerHTML = `<span style="color:var(--muted)">${time}</span> &nbsp;|&nbsp; <strong>${type}</strong> &nbsp;|&nbsp; ${count} baris &nbsp;|&nbsp; Mod: ${modeLabel} &nbsp; <span class="badge green">✓ Berjaya</span>`;
+  log.prepend(entry);
+}
+
+// --- Show validation error helper ---
+function showValidationError(msg) {
+  document.getElementById('validationResult').innerHTML = `<div class="alert-section red"><div class="alert-title">🔴 Ralat Fail</div><div class="alert-item">• ${msg}</div></div>`;
+  document.getElementById('validationPanel').style.display = 'block';
+  document.getElementById('previewPanel').style.display = 'none';
+  importedParsed = [];
+}
+
+// --- Clear all import state ---
+function clearImport() {
+  importedParsed = [];
+  document.getElementById('csvFileInput').value = '';
+  document.getElementById('fileInfo').style.display = 'none';
+  document.getElementById('validationPanel').style.display = 'none';
+  document.getElementById('previewPanel').style.display = 'none';
+  document.getElementById('importSuccess').style.display = 'none';
+}
+
+// --- Download CSV template ---
+function downloadTemplate(type) {
+  const csv = TEMPLATES[type];
+  const names = { programmes:'programmes_template.csv', accreditation:'accreditation_template.csv', kpi:'kpi_template.csv' };
+  triggerCSVDownload(csv, names[type]);
+}
+
+// --- Export current dashboard data to CSV ---
+function exportToCSV(type) {
+  const now = new Date().toISOString().slice(0,10);
+  if (type === 'programmes') {
+    const header = SCHEMAS.programmes.cols.join(',');
+    const rows = programmes.map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+    triggerCSVDownload(header + '\n' + rows, `programmes_export_${now}.csv`);
+  } else if (type === 'accreditation') {
+    const header = SCHEMAS.accreditation.cols.join(',');
+    const rows = accData.map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+    triggerCSVDownload(header + '\n' + rows, `accreditation_export_${now}.csv`);
+  } else if (type === 'kpi') {
+    const header = SCHEMAS.kpi.cols.join(',');
+    triggerCSVDownload(header + '\nKPI data export – sila isi data semasa.\n', `kpi_export_${now}.csv`);
+  }
+}
+
+// --- Trigger browser CSV download ---
+function triggerCSVDownload(content, filename) {
+  const bom = '\uFEFF'; // UTF-8 BOM for Excel compatibility
+  const blob = new Blob([bom + content], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename; a.style.display = 'none';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 </script>
 
